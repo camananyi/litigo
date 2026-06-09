@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SAT Word of the Day</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="flip-card">
+    <div class="flip-card-inner" id="cardInner">
+
+        <!-- FRONT -->
+        <div class="card flip-front">
+
+            <h1>SAT Word of the Day</h1>
+
+            <div class="word"></div>
+
+            <div class="part"></div>
+
+            <div class="section">
+                <span class="label">Definition</span>
+                <p class="definition"></p>
+            </div>
+
+            <div class="section">
+                <span class="label">Example</span>
+                <p class="example"></p>
+            </div>
+
+            <div class="section">
+                <span class="label">Your Sentence</span>
+
+                <textarea placeholder="Use the word in a sentence..."></textarea>
+            </div>
+
+            <button id="submitBtn">Submit</button>
+
+        </div>
+
+        <!-- BACK -->
+        <div class="card flip-back">
+
+            <h2 id="resultTitle"></h2>
+            <p id="resultMessage"></p>
+
+            <button id="actionBtn"></button>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    window.words = {{ words | tojson | safe }};
+</script>
+
+<script src="{{ url_for('static', filename='submit.js') }}"></script>
+</body>
+</html>
